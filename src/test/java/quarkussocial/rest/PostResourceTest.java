@@ -1,14 +1,17 @@
 package quarkussocial.rest;
 
+import static io.restassured.RestAssured.*;
+
+import org.hamcrest.Matchers;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
-import org.hamcrest.Matchers;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import quarkussocial.persistence.dto.CreatePostRequest;
 import quarkussocial.persistence.model.Follower;
 import quarkussocial.persistence.model.Post;
@@ -16,9 +19,6 @@ import quarkussocial.persistence.model.User;
 import quarkussocial.persistence.model.repository.FollowerRepository;
 import quarkussocial.persistence.model.repository.PostRepository;
 import quarkussocial.persistence.model.repository.UserRepository;
-
-import static io.restassured.RestAssured.given;
-import static org.junit.jupiter.api.Assertions.*;
 
 @QuarkusTest
 @TestHTTPEndpoint(PostResource.class)
