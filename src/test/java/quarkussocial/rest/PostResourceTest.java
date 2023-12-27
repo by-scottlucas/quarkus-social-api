@@ -26,8 +26,11 @@ class PostResourceTest {
 
     @Inject
     PostRepository postRepository;
+    @Inject
     FollowerRepository followerRepository;
+    @Inject
     UserRepository userRepository;
+
     Long userId;
     Long userNotFollowerId;
     Long userFollowerId;
@@ -39,8 +42,8 @@ class PostResourceTest {
         var user = new User();
         user.setName("Fulano");
         user.setAge(30);
-        userId = user.getId();
         userRepository.persist(user);
+        userId = user.getId();
 
         // Criada a Postagem para o Usuario
         Post post = new Post();
@@ -52,20 +55,20 @@ class PostResourceTest {
         var userNotFollower = new User();
         userNotFollower.setName("Ciclano");
         userNotFollower.setAge(30);
-        userNotFollowerId = userNotFollower.getId();
         userRepository.persist(userNotFollower);
+        userNotFollowerId = userNotFollower.getId();
 
         //Usuario seguidor
         var userFollower = new User();
         userFollower.setName("Ciclano");
         userFollower.setAge(30);
-        userFollowerId = userFollower.getId();
         userRepository.persist(userFollower);
+        userFollowerId = userFollower.getId();
 
         Follower follower = new Follower();
         follower.setUser(user);
-        follower.setFollower(userFollower);
         followerRepository.persist(follower);
+        follower.setFollower(userFollower);
 
     }
 
@@ -128,7 +131,7 @@ class PostResourceTest {
     @DisplayName("Deve retornar os posts criados.")
     public void listPostsTest(){
 
-        given().pathParam("userId", userId).header("followerId", userFollowerId).when().get().then().statusCode(200).body("size()", Matchers.is(0));
+        given().pathParam("userId", userId).header("followerId", userFollowerId).when().get().then().statusCode(200).body("size()", Matchers.is(1));
 
     }
 }
