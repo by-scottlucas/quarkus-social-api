@@ -12,9 +12,7 @@ import quarkussocial.persistence.model.User;
 
 @ApplicationScoped
 public class FollowerRepository implements PanacheRepository<Follower> {
-
     public boolean follows(User follower, User user) {
-
         var params = Parameters.with("follower", follower).and("user", user).map();
 
         PanacheQuery<Follower> query = find("follower = :follower and user = :user", params);
@@ -29,10 +27,7 @@ public class FollowerRepository implements PanacheRepository<Follower> {
     }
 
     public void deleteByFollowerAndUser(Long followerId, Long userId) {
-
         var params = Parameters.with("userId", userId).and("followerId", followerId).map();
-
         delete("follower.id = :followerId and user.id = :userId", params);
     }
-
 }

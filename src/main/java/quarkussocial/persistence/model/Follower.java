@@ -13,7 +13,6 @@ import lombok.Data;
 @Entity
 @Table(name = "followers")
 public class Follower {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

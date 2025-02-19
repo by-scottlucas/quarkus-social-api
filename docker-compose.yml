@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0 # Usando uma versão estável
+    environment:
+      MYSQL_ROOT_PASSWORD: artindie
+      MYSQL_DATABASE: quarkus_social
+      MYSQL_USER: luke
+      MYSQL_PASSWORD: artindie
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  quarkus-social-api:
+    image: quarkus-social-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    environment:
+      DB_USERNAME: luke
+      DB_PASSWORD: artindie
+      DB_URL: jdbc:mysql://mysql:3306/quarkus_social
+
+volumes:
+  mysql_data:
+    driver: local

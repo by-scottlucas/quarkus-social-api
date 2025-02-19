@@ -1,27 +1,18 @@
-####
-# This Dockerfile is used in order to build a container that runs the Quarkus application in native (no JVM) mode.
-#
-# Before building the container image run:
-#
-# ./mvnw package -Dnative
-#
-# Then, build the image with:
-#
-# docker build -f src/main/docker/Dockerfile.native -t quarkus/quarkus-social .
-#
-# Then run the container using:
-#
-# docker run -i --rm -p 8080:8080 quarkus/quarkus-social
-#
-###
-FROM registry.access.redhat.com/ubi8/ubi-minimal:8.8
-WORKDIR /work/
-RUN chown 1001 /work \
-    && chmod "g+rwX" /work \
-    && chown 1001:root /work
-COPY --chown=1001:root target/*-runner /work/application
+FROM registry.access.redhat.com/ubi8/graalvm-ce:java17-22.3 as build
+
+WORKDIR /app
+
+COPY . .
+
+RUN gu install native-image
+RUN mvn clean package -Dnative -DskipTests || exit 1
+
+FROM scratch
+
+COPY --from=build /app/target/quarkus-app-native-image-* /app/
 
 EXPOSE 8080
-USER 1001
 
-ENTRYPOINT ["./application", "-Dquarkus.http.host=0.0.0.0"]
+ENV JAVA_OPTS_APPEND="-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager"
+
+ENTRYPOINT ["/app/quarkus-app-native-image-*"]

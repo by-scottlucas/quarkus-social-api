@@ -5,7 +5,6 @@ import quarkussocial.persistence.model.Follower;
 
 @Data
 public class FollowerResponse {
-
     private Long id;
     private String name;
 
@@ -20,5 +19,4 @@ public class FollowerResponse {
         this.id = id;
         this.name = name;
     }
-
 }
