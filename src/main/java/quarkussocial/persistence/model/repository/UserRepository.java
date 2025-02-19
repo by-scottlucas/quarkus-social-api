@@ -5,6 +5,4 @@ import jakarta.enterprise.context.ApplicationScoped;
 import quarkussocial.persistence.model.User;
 
 @ApplicationScoped
-public class UserRepository implements PanacheRepository<User> {
-
-}
+public class UserRepository implements PanacheRepository<User> {}

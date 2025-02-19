@@ -5,6 +5,4 @@ import jakarta.enterprise.context.ApplicationScoped;
 import quarkussocial.persistence.model.Post;
 
 @ApplicationScoped
-public class PostRepository implements PanacheRepository<Post> {
-    
-}
+public class PostRepository implements PanacheRepository<Post> {}

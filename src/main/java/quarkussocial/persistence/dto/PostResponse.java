@@ -7,7 +7,6 @@ import quarkussocial.persistence.model.Post;
 
 @Data
 public class PostResponse {
-
     private String text;
     private LocalDateTime datetime;
 

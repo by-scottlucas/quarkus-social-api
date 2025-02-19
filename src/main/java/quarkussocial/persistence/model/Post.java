@@ -17,7 +17,6 @@ import lombok.Data;
 @Table(name = "posts")
 @Data
 public class Post {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -36,5 +35,4 @@ public class Post {
     public void prePersist(){
         setDateTime(LocalDateTime.now());
     }
-
 }

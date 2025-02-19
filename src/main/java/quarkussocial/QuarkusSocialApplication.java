@@ -19,5 +19,4 @@ import org.eclipse.microprofile.openapi.annotations.info.License;
                         url = "https://www.apache.org/licenses/LICENSE-2.0.html")
         )
 )
-public class QuarkusSocialApplication extends Application {
-}
+public class QuarkusSocialApplication extends Application {}

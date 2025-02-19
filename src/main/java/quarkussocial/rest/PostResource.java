@@ -26,7 +26,6 @@ import quarkussocial.persistence.model.repository.UserRepository;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class PostResource {
-
     private UserRepository userRepository;
     private PostRepository repository;
     private FollowerRepository followerRepository;
@@ -59,7 +58,6 @@ public class PostResource {
 
     @GET
     public Response listPost(@PathParam("userId") Long userId, @HeaderParam("followerId") Long followerId) {
-
         User user = userRepository.findById(userId);
 
         if (user == null) {
@@ -89,5 +87,4 @@ public class PostResource {
 
         return Response.ok(postResponseList).build();
     }
-
 }

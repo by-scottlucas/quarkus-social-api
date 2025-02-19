@@ -25,7 +25,6 @@ import quarkussocial.persistence.model.repository.UserRepository;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class FollowerResource {
-
     private FollowerRepository repository;
     private UserRepository userRepository;
 
@@ -97,5 +96,4 @@ public class FollowerResource {
         return Response.status(Response.Status.NO_CONTENT).build();
 
     }
-
 }

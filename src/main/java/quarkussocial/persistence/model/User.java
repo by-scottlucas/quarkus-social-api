@@ -12,7 +12,6 @@ import lombok.Data;
 @Table(name = "users")
 @Data
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,5 +21,4 @@ public class User {
 
     @Column(name = "age")
     private Integer age;
-
 }

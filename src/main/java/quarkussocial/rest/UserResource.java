@@ -22,7 +22,6 @@ import quarkussocial.persistence.model.repository.UserRepository;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class UserResource {
-
     private UserRepository repository;
     private Validator validator;
 
@@ -79,5 +78,4 @@ public class UserResource {
 
         return Response.status(Response.Status.NOT_FOUND).build();
     }
-
 }
