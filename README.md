@@ -116,7 +116,7 @@ Para mais detalhes sobre como usar cada arquivo Docker, consulte a documentaçã
 
 ## Autor
 
-Este projeto foi desenvolvido por Lucas Santos Silva, Desenvolvedor Full Stack, graduado pela Escola Técnica do Estado de São Paulo (ETEC) nos cursos de Informática (Suporte) e Informática para Internet.
+Este projeto foi desenvolvido por **Lucas Santos Silva**, Desenvolvedor Full Stack, graduado pela **Escola Técnica do Estado de São Paulo (ETEC)** nos cursos de **Informática (Suporte)** e **Informática para Internet**.
 
 ## Licença
 
